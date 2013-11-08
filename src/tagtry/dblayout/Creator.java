@@ -97,10 +97,11 @@ public class Creator {
 		return social;
 	}
 
-	public static Client create_client(ParseData parse,
+	public static Client create_client(User user, ParseData parse,
 			ParseInstallation installation, Social social) {
 
 		Client returnclient = new Client();
+		returnclient.setUser(user);
 		returnclient.setParseData(parse);
 		returnclient.setParseInstallation(installation);
 		returnclient.setSocial(social);

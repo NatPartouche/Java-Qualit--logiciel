@@ -24,7 +24,7 @@ public class ConnectorTest {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		assertTrue("Open", value);
+		assertTrue(value);
 	}
 
 	@Test
@@ -43,6 +43,6 @@ public class ConnectorTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		assertFalse("Open", value);
+		assertFalse(value);
 	}
 }

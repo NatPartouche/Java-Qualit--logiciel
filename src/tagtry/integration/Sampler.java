@@ -2,6 +2,8 @@ package tagtry.integration;
 
 import java.util.Set;
 
+import javax.persistence.GenerationType;
+
 import tagtry.dblayout.Creator;
 import tagtry.dblayout.Generator;
 import tagtry.integration.test.gender;
@@ -24,7 +26,11 @@ public class Sampler {
 
 		Social social = Creator.create_social();
 
-		Client client = Creator.create_client(parse, installation, social);
+		User user = Creator.create_user(Generator.randomstring(),
+				Generator.randomstring(), Generator.randomint(),
+				Generator.randomgender());
+		Client client = Creator
+				.create_client(user, parse, installation, social);
 		Owner owner = Creator.create_owner(Creator.FACEBOOK_APP_ID,
 				Creator.FACEBOOK_APP_SECRET, Creator.create_user(
 						Generator.randomstring(), Generator.randomstring(),
