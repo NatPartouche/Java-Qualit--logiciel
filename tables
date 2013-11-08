@@ -1,0 +1,83 @@
+#Table client -> new Client()
+
+{
+    "_id": {
+        "$oid": "526baaa20364869208141d94"
+    },
+    "age": 12,
+    "class": "tagtry.model.Client",
+    "firstname": "nulrgadzuxdrjvshyska",
+    "gender": "MAN",
+    "name": "kibxrfgbdsfzzthkfzqa",
+    "paiementData": null,
+    "parseData": {
+        "authdata": "Ok",
+        "class": "tagtry.model.ParseData",
+        "client": null,
+        "createdAt": null,
+        "email": "natanel@gmail.com",
+        "emailverified": true,
+        "objectId": null,
+        "password": "pwd",
+        "phone": "0000000000",
+        "surname": "nulrgadzuxdrjvshyska kibxrfgbdsfzzthkfzqa",
+        "updatedAt": null
+    },
+    "parseInstallation": {
+        "appName": "0.0",
+        "appVersion": null,
+        "badge": 1,
+        "channels": "live",
+        "class": "tagtry.model.ParseInstallation",
+        "client": null,
+        "createdAt": null,
+        "deviceToken": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+        "deviceType": "ios",
+        "installationId": null,
+        "objectId": null,
+        "parseVersion": null,
+        "timeZone": null,
+        "updatedAt": null
+    },
+    "sizedown": 33,
+    "sizeshoes": 44,
+    "sizeup": "L",
+    "social": {
+        "class": "tagtry.model.Social",
+        "facebook": {
+            "class": "tagtry.model.Facebook",
+            "facebookId": "100005374869617",
+            "facebookToken": "CAAE1CZCgQbO8BAL54WPh8X3F53SXzolzMxNBPtr3ZClZBzgSbzljhmihMZALey71joyQG1vZCO467gWIGCiITms2NsY8ofh7DUKLNYM6VhDaFImorcjMwWcA1DmY0ZBZB7mgO0UD6Y077T4m4p1cZAhLPEdZAkb96opZBVpVqGaRRX72iUZBkJ5eI5MYmBSKi1BGzEZD",
+            "social": null
+        },
+        "twitter": {
+            "class": "tagtry.model.Twitter",
+            "social": null,
+            "twitterId": "",
+            "twitterToken": ""
+        },
+        "user": null
+    }
+}
+
+#Table owner = new Owner
+{
+    "_id": {
+        "$oid": "526bb58203647ea5be84acb6"
+    },
+    "age": 20,
+    "class": "tagtry.model.Owner",
+    "facebookSecret": "3b1c9ca1a675c03c1ffe541204a42e16",
+    "facebookid": "339800499449071",
+    "firstname": "wenyvdesmwmzgykvcxbc",
+    "gender": "MAN",
+    "name": "niftkiscqqwgekdishxf"
+} 
+
+
+#Table store 
+
+#Table Item
+
+
+
