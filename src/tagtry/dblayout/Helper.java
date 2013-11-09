@@ -22,6 +22,10 @@ public class Helper {
 
 	}
 
+	public static Set<String> getAllCollection() {
+		return db.getCollectionNames();
+	}
+
 	public static void createcollection(String name, BasicDBObject obj) {
 		db.createCollection(name, obj);
 	}

@@ -26,36 +26,11 @@ public class test {
 
 	public static void main(String[] args) {
 
-		// Client client = Sampler.create_client();
-		// FacebookHelper.publish(client);
-		// FacebookHelper.like(client);
-		// ParseHelper.createuser(client);
-		// ParseHelper.installation(client);
-		// ParseHelper.createuser(client);
-		// ParseHelper.installation(client);
-		// String value = serializer.serialize(client);
-		// System.out.println(value);
 		try {
 			Helper.start();
-			// Creator.create_client();
-			// Creator.create_owner();
-
-			String ownervalue = Finder.finbyObjectIDinDB("owner",
-					"526bc8e10364c4f532f3e3dd").toString();
-
-			Owner o = (Owner) Serializer.DeSerialize(ownervalue, classes.Owner);
-
-			String storevalue = Finder.finbyObjectIDinDB("store",
-					"526bce03036462dd5eb7780f").toString();
-
-			Store s = (Store) Serializer.DeSerialize(storevalue, classes.Store);
-			Creator.create_item(s);
-			Finder.findAll("item");
-
-			Finder.findbyattributvalueDB("client", "email", "natanel@gmail.com");
-
 			Finder.findAll("client");
-
+			System.out.println(Helper.getAllCollection().toString());
+			Helper.stop();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
