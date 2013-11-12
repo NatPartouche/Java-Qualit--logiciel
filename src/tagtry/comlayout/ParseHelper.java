@@ -58,4 +58,8 @@ public final class ParseHelper {
 		}
 
 	}
+
+	public static void sendpush(Client client) {
+
+	}
 }
