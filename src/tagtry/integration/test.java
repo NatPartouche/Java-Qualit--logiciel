@@ -29,12 +29,13 @@ public class test {
 	public static void main(String[] args) {
 
 		try {
-			/*
-			 * Helper.start(); Finder.findAll("client");
-			 * System.out.println(Helper.getAllCollection().toString());
-			 * Helper.stop(); INSERT INTO User VALUES (value2,value3);
-			 */
-			JdbcHelper.viewTable(JdbcConnector.open(), "User");
+		
+			 Helper.start(); Finder.findAll("client");
+			  System.out.println(Helper.getAllCollection().toString());
+			  Helper.stop();
+			  
+			 
+			//JdbcHelper.viewTable(JdbcConnector.open(), "User");
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
