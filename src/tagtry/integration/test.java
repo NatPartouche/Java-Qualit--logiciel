@@ -32,8 +32,7 @@ public class test {
 			/*
 			 * Helper.start(); Finder.findAll("client");
 			 * System.out.println(Helper.getAllCollection().toString());
-			 * Helper.stop();
-			 * INSERT INTO User VALUES (value2,value3);
+			 * Helper.stop(); INSERT INTO User VALUES (value2,value3);
 			 */
 			JdbcHelper.viewTable(JdbcConnector.open(), "User");
 
