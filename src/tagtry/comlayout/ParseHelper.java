@@ -75,11 +75,8 @@ public final class ParseHelper {
 		boolean returnvalue = false;
 		try {
 			JSONObject data = new JSONObject();
-			data.put("action", "com.example.UPDATE_STATUS");
 			data.put("alert", "Ricky Vaughn was injured in last night's game!");
-			data.put("name", "Vaughn");
-			data.put("newsItem", "Man bites dog");
-
+			
 			JSONArray array = new JSONArray();
 			array.put("live");
 

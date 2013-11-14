@@ -119,7 +119,7 @@ public class ParseHelperTest {
 				parseinstallation, social);
 
 		try {
-			assertFalse(ParseHelper.installation(client));
+			assertFalse(ParseHelper.installation(null));
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -166,7 +166,7 @@ public class ParseHelperTest {
 
 		Client client = Creator.create_client(user, parsedata,
 				parseinstallation, social);
-		boolean value = ParseHelper.sendpush(client);
+		boolean value = ParseHelper.sendpush(null);
 		assertFalse(value);
 
 	}
