@@ -1,7 +1,13 @@
 package tagtry.comlayout;
 
+import java.io.IOException;
+
+import org.apache.http.client.ClientProtocolException;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
+
+import com.mongodb.util.JSON;
 
 import tagtry.model.Client;
 
@@ -13,30 +19,29 @@ public final class ParseHelper {
 	public static String appkey = "ycLv4268FKKdI0ZytAaItqUi5jVBuc7bHvQMMy6J";
 	public static String content = "application/json";
 
-	public static void createuser(Client client) {
+	public static boolean createuser(Client client) throws JSONException,
+			ClientProtocolException, IOException {
 		String temp = basedurl + "users/";
 		JSONObject data = new JSONObject();
-
-		try {
-
-			data.put("name", client.getUser().getName());
-			data.put("firstname", client.getUser().getFirstname());
-			data.put("username", client.getParseData().getSurname());
-			data.put("password", client.getParseData().getPassword());
-			data.put("phone", client.getParseData().getPhone());
-			data.put("email", client.getParseData().getEmail());
-
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
+		boolean returnvalue = false;
+		data.put("name", client.getUser().getName());
+		data.put("firstname", client.getUser().getFirstname());
+		data.put("username", client.getParseData().getSurname());
+		data.put("password", client.getParseData().getPassword());
+		data.put("phone", client.getParseData().getPhone());
+		data.put("email", client.getParseData().getEmail());
+		if (Helper.post(temp, data) == 201) {
+			returnvalue = true;
+		} else if (Helper.post(temp, data) == 400) {
+			returnvalue = false;
 		}
-
 		System.out.println(data.toString());
-		Helper.post(temp, data);
-
+		return returnvalue;
 	}
 
-	public static void installation(Client client) {
+	public static boolean installation(Client client) {
 
+		boolean returnvalue = false;
 		String temp = basedurl + "installations/";
 
 		try {
@@ -49,17 +54,49 @@ public final class ParseHelper {
 			JSONArray array = new JSONArray();
 			array.put(client.getParseInstallation().getChannels());
 			data.put("channels", array);
-
 			System.out.println(data);
-			Helper.post(temp, data);
+			if (Helper.post(temp, data) == 201) {
+				returnvalue = true;
+			} else if (Helper.post(temp, data) == 400) {
+				returnvalue = false;
+			}
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
+		return returnvalue;
 
 	}
 
-	public static void sendpush(Client client) {
+	public static boolean sendpush(Client client) {
+
+		String temp = basedurl + "push/";
+
+		boolean returnvalue = false;
+		try {
+			JSONObject data = new JSONObject();
+			data.put("action", "com.example.UPDATE_STATUS");
+			data.put("alert", "Ricky Vaughn was injured in last night's game!");
+			data.put("name", "Vaughn");
+			data.put("newsItem", "Man bites dog");
+
+			JSONArray array = new JSONArray();
+			array.put("live");
+
+			JSONObject obj = new JSONObject();
+			obj.put("data", data);
+			obj.put("channels", array);
+			System.out.println(obj);
+			if (Helper.post(temp, data) == 201) {
+				returnvalue = true;
+			} else if (Helper.post(temp, data) == 400) {
+				returnvalue = false;
+			}
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return returnvalue;
 
 	}
 }

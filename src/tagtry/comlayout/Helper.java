@@ -1,10 +1,13 @@
 package tagtry.comlayout;
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
@@ -41,22 +44,23 @@ public final class Helper {
 	 * params for parse.com
 	 */
 
-	public static void post(String url, JSONObject data) {
+	public static int post(String url, JSONObject data)
+			throws ClientProtocolException, IOException {
 		HttpClient httpclient = new DefaultHttpClient();
 		HttpPost httppost = new HttpPost(url);
 		System.out.println(url);
 
+		httppost.addHeader("X-Parse-Application-Id", ParseHelper.appid);
+		httppost.addHeader("X-Parse-REST-API-Key", ParseHelper.appkey);
+		httppost.addHeader("Content-Type", ParseHelper.content);
 		try {
-			httppost.addHeader("X-Parse-Application-Id", ParseHelper.appid);
-			httppost.addHeader("X-Parse-REST-API-Key", ParseHelper.appkey);
-			httppost.addHeader("Content-Type", ParseHelper.content);
 			httppost.setEntity(new StringEntity(data.toString()));
-			HttpResponse response = httpclient.execute(httppost);
-			System.out.println(response.getStatusLine());
-
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		HttpResponse response = httpclient.execute(httppost);
+		return response.getStatusLine().getStatusCode();
 	}
 
 	public static void get(String url) {
