@@ -13,14 +13,13 @@ public class TwitterHelper {
 	public static String barseurl = "";
 
 	public static void publish(Client client) {
-		String facebookID = client.getSocial().getFacebook().getFacebookId();
-		String url = basedurl + facebookID + "/feed";
+		String TwitterID = client.getSocial().getTwitter().getTwitterId();
+		String temp = barseurl + "twitter/proxy/statuses/update";
 		List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
-		nameValuePairs.add(new BasicNameValuePair("message", "message"));
-		nameValuePairs.add(new BasicNameValuePair("access_token", client
-				.getSocial().getFacebook().getFacebookToken()));
+		nameValuePairs.add(new BasicNameValuePair("twitter_screen_names",
+				"natpartouche"));
+		nameValuePairs.add(new BasicNameValuePair("status", "Message"));
 
-		Helper.post(url, nameValuePairs);
+		// Helper.post(url, nameValuePairs);
 	}
-
 }
